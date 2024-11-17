@@ -2,6 +2,8 @@
   "name": "@toriyama/japanese-address-parser-nodejs",
   "version": "0.2.0-rc.2",
   "description": "A Node.js binding for japanese-address-parser written in Rust.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build:debug": "napi build --platform",
     "build:production": "napi build --platform --release"
