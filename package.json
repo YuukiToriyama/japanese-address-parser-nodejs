@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build:debug": "napi build --platform",
+    "build:debug": "napi build --platform && mv *.node ./dist && rm index.js index.d.ts",
     "build:production": "napi build --platform --release"
   },
   "devDependencies": {
