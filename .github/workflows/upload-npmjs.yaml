@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - 'v*'
+    branches:
+      - 'feature/fix-upload-flow' # 動作確認用
 
 jobs:
   build-macos:
@@ -96,6 +98,6 @@ jobs:
           merge-multiple: true
       - run: ls -l dist
       - name: Publish
-        run: npm publish --provenance --access public
+        run: npm publish --provenance --access public --dry-run # 動作確認用
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
