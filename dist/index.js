@@ -12,7 +12,7 @@ const modulePath = () => {
         case 'darwin': {
             switch (arch) {
                 case 'x64': {
-                    const modulePath = path.resolve(module.path, './x64-apple-darwin/node-bindgen-sandbox.node')
+                    const modulePath = path.resolve(module.path, './japanese-address-parser.darwin-x64.node')
                     if (!fs.existsSync(modulePath)) {
                         throw new Error(`Fail to find native module in: ${modulePath}`);
                     }
