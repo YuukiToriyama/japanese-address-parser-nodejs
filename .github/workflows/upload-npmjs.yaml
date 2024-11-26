@@ -92,6 +92,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: dist
+          pattern: binding-*
+          merge-multiple: true
       - run: ls -l dist
       - name: Publish
         run: npm publish --provenance --access public
