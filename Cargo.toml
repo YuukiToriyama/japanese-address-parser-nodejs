@@ -1,13 +1,13 @@
 [package]
 name = "japanese-address-parser-nodejs"
-version = "0.2.4"
+version = "0.2.7"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
-japanese-address-parser = { version = "0.2.4", features = ["experimental"] }
+japanese-address-parser = { version = "0.2.7", features = ["experimental"] }
 napi = { version = "2.16.13", features = ["async"] }
 napi-derive = "2.16.12"
 
