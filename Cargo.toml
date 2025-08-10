@@ -7,7 +7,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-japanese-address-parser = { version = "0.2.4", features = ["experimental"] }
+japanese-address-parser = { version = "0.2.7", features = ["experimental"] }
 napi = { version = "2.16.13", features = ["async"] }
 napi-derive = "2.16.12"
 

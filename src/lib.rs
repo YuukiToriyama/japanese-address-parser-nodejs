@@ -4,6 +4,7 @@ use napi_derive::napi;
 #[napi(js_name = "Parser")]
 pub struct JsParser {
     parser: Parser,
+    options: japanese_address_parser::experimental::parser::ParserOptions,
 }
 
 #[napi(object)]
@@ -35,28 +36,28 @@ impl JsParser {
     pub fn new() -> Self {
         JsParser {
             parser: Parser::default(),
+            options: Default::default(),
         }
     }
 
     #[napi(factory)]
     pub fn init_with_options(options: ParserOptions) -> Self {
         JsParser {
-            parser: Parser {
-                options: japanese_address_parser::experimental::parser::ParserOptions {
-                    data_source: match options.data_source.as_str() {
-                        "ChimeiRuiju" => DataSource::ChimeiRuiju,
-                        _ => DataSource::Geolonia,
-                    },
-                    correct_incomplete_city_names: options.correct_incomplete_city_names,
-                    verbose: options.verbose,
+            parser: Parser::default(),
+            options: japanese_address_parser::experimental::parser::ParserOptions {
+                data_source: match options.data_source.as_str() {
+                    "ChimeiRuiju" => DataSource::ChimeiRuiju,
+                    _ => DataSource::Geolonia,
                 },
+                correct_incomplete_city_names: options.correct_incomplete_city_names,
+                verbose: options.verbose,
             },
         }
     }
 
     #[napi]
     pub async fn parse(&self, input: String) -> napi::Result<ParsedAddress> {
-        let result = self.parser.parse(&input).await;
+        let result = self.parser.parse_with_options(&input, &self.options).await;
         Ok(ParsedAddress {
             prefecture: result.prefecture,
             city: result.city,
