@@ -1,6 +1,6 @@
 {
   "name": "@toriyama/japanese-address-parser-nodejs",
-  "version": "0.2.4",
+  "version": "0.2.7",
   "description": "A Node.js binding for japanese-address-parser written in Rust.",
   "keywords": [
     "utility",
