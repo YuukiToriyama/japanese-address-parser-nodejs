@@ -96,6 +96,4 @@ jobs:
           merge-multiple: true
       - run: ls -l dist
       - name: Publish
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public
